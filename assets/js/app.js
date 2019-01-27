@@ -17,7 +17,7 @@ $("#submit").on("click", function (event) {
     // Grabs user input
     var trainName = $("#train-name-input").val().trim();
     var trainDest = $("#destination-input").val().trim();
-    var trainStart = moment($("#start-input").val().trim(), "HH:mm").format("hh:mm a");
+    var trainStart = $("#start-input").val().trim();
     var trainFreq = $("#freq-input").val().trim();
 
     var newTrain = {
@@ -41,13 +41,13 @@ $("#submit").on("click", function (event) {
 
 // Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
 database.ref().on("child_added", function (childSnapshot) {
-    console.log(childSnapshot.val());
-    
+    // console.log(childSnapshot.val());
+
     // Making sure the first train comes before now
-    var firstTrainNew = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
+    var firstTrain = moment(childSnapshot.val().start, "hh:mm").subtract(1, "years");
 
     // Calculate the time difference between first train and current time
-    var diffTime = moment().diff(moment(firstTrainNew), "minutes");
+    var diffTime = moment().diff(moment(firstTrain), "minutes");
     var remainder = diffTime % childSnapshot.val().frequency;
 
     // Calculating how many minutes until next train
