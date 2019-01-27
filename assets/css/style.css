@@ -1,0 +1,90 @@
+body {
+	font-family: 'Questrial', sans-serif;
+}
+
+.jumbotron {
+	text-align: center;
+	background: linear-gradient(-45deg, #D92E2E, #C52563, #983C83, #624B89, #374E76, #2F4858);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+	color: white;
+	line-height: 2;
+}
+
+#main {
+	overflow: auto;
+	padding-bottom: 150px;
+	/* this needs to be bigger than footer height*/
+}
+
+.form-control {
+	border-radius: 0px;
+	margin-top: 10px;
+}
+
+.btn {
+	transition: 0.5s;
+	border-radius: 0px;
+	text-transform: uppercase;
+	background-color: #428bca;
+}
+
+.btn:hover {
+	border-radius: 12px;
+	transition: 0.5s;
+}
+
+#train-form{
+	border-radius: 0px;
+	border: 1px solid #428bca;
+}
+
+.footer {
+	position: relative;
+	margin-top: -150px;
+	/* negative value of footer height */
+	height: 150px;
+	clear: both;
+	padding-top: 20px;
+	text-align: center;
+	background-color: #428bca;	
+	color: white;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
