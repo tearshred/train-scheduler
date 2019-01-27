@@ -42,7 +42,7 @@ $("#submit").on("click", function (event) {
 // Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
 database.ref().on("child_added", function (childSnapshot) {
     console.log(childSnapshot.val());
-
+    
     // Making sure the first train comes before now
     var firstTrainNew = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
 
@@ -54,7 +54,7 @@ database.ref().on("child_added", function (childSnapshot) {
     var minutesAway = childSnapshot.val().frequency - remainder;
 
     // Next train time
-    var nextTrain = moment().add(minAway, "minutes");
+    var nextTrain = moment().add(minutesAway, "minutes");
     nextTrain = moment(nextTrain).format("hh:mm");
 
     // Store everything into a variable.
@@ -67,7 +67,7 @@ database.ref().on("child_added", function (childSnapshot) {
         $("<td>").text(trainName),
         $("<td>").text(trainDest),
         $("<td>").text(trainFreq),
-        $("<td>").text(nexTrain),
+        $("<td>").text(nextTrain),
         $("<td>").text(minutesAway)
     );
 
